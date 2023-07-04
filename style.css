@@ -23,8 +23,7 @@ body {
     background-color: aqua;
 }
 
-#buttonContainer,
-#gridContainer {
+#buttonContainer{
   margin-bottom: 30px;
 }
 
