@@ -19,10 +19,6 @@ body {
     background-color: white; 
 }
 
-.cell:hover {
-    background-color: aqua;
-}
-
 #buttonContainer{
   margin-bottom: 30px;
 }

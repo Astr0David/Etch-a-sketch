@@ -1,6 +1,7 @@
 // Get the grid container
 const gridContainer = document.getElementById('gridContainer');
 const gridButton = document.getElementById('gridSizeButton');
+const cellcolor = document.getElementsByClassName('cell');
 
 // Specify the number of cells in the grid
 let numCells = 32; // Increase this number to increase the number of cells in the grid
@@ -20,6 +21,18 @@ for (let i = 0; i < numCells * numCells; i++) {
   gridContainer.appendChild(cell);
 }
 
+const cells = document.querySelectorAll('.cell');
+cells.forEach(cell => {
+    cell.addEventListener('mouseenter', () => {
+    const randomColor = getRandomColor();
+    cell.style.backgroundColor = randomColor;
+    });
+    
+    cell.addEventListener('mouseleave', () => {
+    cell.style.backgroundColor = randomColor;
+});
+})
+
 // Create function for button press (allow user to change grid size)
 gridButton.addEventListener ("click", function() {
     const gridsize = prompt("Please enter desired grid size (MAX 100):", `${numCells}`);
@@ -37,6 +50,7 @@ gridButton.addEventListener ("click", function() {
         const containerSize = gridContainer.offsetWidth;
         const cellSize = containerSize / numCells;
 
+        // Clear existing grid
         gridContainer.innerHTML = '';
 
         gridContainer.style.gridTemplateColumns = `repeat(${numCells}, ${cellSize}px)`;
@@ -46,7 +60,25 @@ gridButton.addEventListener ("click", function() {
         const cell = document.createElement('div');
         cell.className = 'cell';
         gridContainer.appendChild(cell);
-        }}}
+        }
+    
+    const cells = document.querySelectorAll('.cell');
+    cells.forEach(cell => {
+        cell.addEventListener('mouseenter', () => {
+        const randomColor = getRandomColor();
+        cell.style.backgroundColor = randomColor;
+        });
+        
+        cell.addEventListener('mouseleave', () => {
+        cell.style.backgroundColor = '';
+    });
 });
+}}});
 
-
+// Function to generate a random RGB color
+function getRandomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+  }
