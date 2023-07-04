@@ -1,5 +1,6 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -16,4 +17,27 @@ body {
 
 .cell {
     background-color: white; 
+}
+
+.cell:hover {
+    background-color: aqua;
+}
+
+#buttonContainer,
+#gridContainer {
+  margin-bottom: 30px;
+}
+
+#titleContainer h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    color: burlywood;
+}
+
+#buttonContainer button{
+    border-radius: 8%;
+    border: 5px black;
+    width: 75px;
+    height: 25px;
+    font-size: 13px;
 }

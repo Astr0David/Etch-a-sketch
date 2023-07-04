@@ -2,7 +2,7 @@
 const gridContainer = document.getElementById('gridContainer');
 
 // Specify the number of cells in the grid
-const numCells = 16; // Increase this number to increase the number of cells in the grid
+const numCells = 32; // Increase this number to increase the number of cells in the grid
 
 // Calculate the cell size based on the container size and number of cells
 const containerSize = gridContainer.offsetWidth; // Assumes the container has a fixed width and height
