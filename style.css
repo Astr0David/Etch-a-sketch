@@ -5,15 +5,15 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
+    background-color: gray;
 }
 
 .grid {
     display: grid;
-    gap: 1px;
-    width: 500px;
-    height: 500px;
+    width: 650px;
+    height: 650px;
 }
 
 .cell {
-    background-color: gray; 
+    background-color: white; 
 }
