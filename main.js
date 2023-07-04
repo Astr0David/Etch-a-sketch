@@ -1,7 +1,6 @@
 // Get the grid container
 const gridContainer = document.getElementById('gridContainer');
 const gridButton = document.getElementById('gridSizeButton');
-const cellcolor = document.getElementsByClassName('cell');
 
 // Specify the number of cells in the grid
 let numCells = 32; // Increase this number to increase the number of cells in the grid
@@ -70,7 +69,7 @@ gridButton.addEventListener ("click", function() {
         });
         
         cell.addEventListener('mouseleave', () => {
-        cell.style.backgroundColor = '';
+        cell.style.backgroundColor = randomColor;
     });
 });
 }}});
@@ -81,4 +80,35 @@ function getRandomColor() {
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
     return `rgb(${r}, ${g}, ${b})`;
+}
+
+const cellClear = document.getElementById('clearGridButton');
+
+cellClear.addEventListener("click", function() {
+  gridContainer.innerHTML = '';
+
+  const containerSize = gridContainer.offsetWidth; 
+  const cellSize = containerSize / numCells;
+
+  gridContainer.style.gridTemplateColumns = `repeat(${numCells}, ${cellSize}px)`;
+  gridContainer.style.gridTemplateRows = `repeat(${numCells}, ${cellSize}px)`;
+
+  for (let i = 0; i < numCells * numCells; i++) {
+    const cell = document.createElement('div');
+    cell.className = 'cell';
+    gridContainer.appendChild(cell);
   }
+
+  const cells = document.querySelectorAll('.cell');
+  cells.forEach(cell => {
+    cell.addEventListener('mouseenter', () => {
+      const randomColor = getRandomColor();
+      cell.style.backgroundColor = randomColor;
+    });
+
+    cell.addEventListener('mouseleave', () => {
+      const randomColor = getRandomColor(); 
+      cell.style.backgroundColor = randomColor;
+    });
+  });
+});

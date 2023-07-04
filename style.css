@@ -21,6 +21,8 @@ body {
 
 #buttonContainer{
   margin-bottom: 30px;
+  display: flex;
+  align-items: center;
 }
 
 #titleContainer h1 {
@@ -35,4 +37,6 @@ body {
     width: 75px;
     height: 25px;
     font-size: 13px;
+    margin: 7px;
+    cursor: pointer;
 }
